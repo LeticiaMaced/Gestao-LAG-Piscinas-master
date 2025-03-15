@@ -6,42 +6,42 @@ async function iniciarBanco() {
     db = new SQL.Database();
 
     // Cria as tabelas se não existirem
-    db.run(`
-        CREATE TABLE IF NOT EXISTS Clientes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT,
-            email TEXT,
-            endereco TEXT,
-            detalhes TEXT
-        );
+    // db.run(`
+    //     CREATE TABLE IF NOT EXISTS Clientes (
+    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //         nome TEXT,
+    //         email TEXT,
+    //         endereco TEXT,
+    //         detalhes TEXT
+    //     );
 
-        CREATE TABLE IF NOT EXISTS Orcamentos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            cliente_id INTEGER,
-            servico TEXT,
-            preco REAL,
-            detalhes TEXT,
-            FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
-        );
+    //     CREATE TABLE IF NOT EXISTS Orcamentos (
+    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //         cliente_id INTEGER,
+    //         servico TEXT,
+    //         preco REAL,
+    //         detalhes TEXT,
+    //         FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
+    //     );
 
-        CREATE TABLE IF NOT EXISTS Contatos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            cliente_id INTEGER,
-            nota TEXT,
-            prioridade TEXT,
-            FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
-        );
+    //     CREATE TABLE IF NOT EXISTS Contatos (
+    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //         cliente_id INTEGER,
+    //         nota TEXT,
+    //         prioridade TEXT,
+    //         FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
+    //     );
 
-        CREATE TABLE IF NOT EXISTS Pagamentos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            cliente_id INTEGER,
-            valor REAL,
-            forma_pagamento TEXT,
-            data TEXT,
-            pago BOOLEAN,
-            FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
-        );
-    `);
+    //     CREATE TABLE IF NOT EXISTS Pagamentos (
+    //         id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //         cliente_id INTEGER,
+    //         valor REAL,
+    //         forma_pagamento TEXT,
+    //         data TEXT,
+    //         pago BOOLEAN,
+    //         FOREIGN KEY (cliente_id) REFERENCES Clientes (id)
+    //     );
+    // `);
     
     // Adiciona clientes e contatos de exemplo
     adicionarClientesExemplo();
